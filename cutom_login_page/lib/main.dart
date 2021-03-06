@@ -10,13 +10,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Login Page',
-        home: myScreen());
+        home: MyScreen());
   }
 }
 
-class myScreen extends StatelessWidget {
+class MyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var boxDecoration = BoxDecoration(
+        color: Colors.red, borderRadius: BorderRadius.circular(20));
     return Scaffold(
       backgroundColor: Color(0xff2a2a32),
       // backgroundColor: Colors.black,
@@ -75,6 +77,11 @@ class myScreen extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+            child: Center(
+              child: Text("Login"),
+            ),
+          )
         ],
       ),
     );
