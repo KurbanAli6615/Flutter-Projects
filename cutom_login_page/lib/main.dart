@@ -78,9 +78,42 @@ class MyScreen extends StatelessWidget {
             ),
           ),
           Container(
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.2),
+            width: MediaQuery.of(context).size.width * 0.6,
+            height: MediaQuery.of(context).size.width * 0.1,
             child: Center(
-              child: Text("Login"),
+              child: Text(
+                "Login",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
             ),
+            decoration: BoxDecoration(
+                color: Colors.green, borderRadius: BorderRadius.circular(20)),
+          ),
+          Spacer(),
+          Container(
+            margin: EdgeInsets.only(bottom: 20),
+            height: 30,
+            width: MediaQuery.of(context).size.width,
+            child: Center(
+                child: RichText(
+              text: TextSpan(
+                  text: "Not have an account ? ",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: "Sign up",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.green,
+                            decoration: TextDecoration.underline))
+                  ]),
+            )),
           )
         ],
       ),
