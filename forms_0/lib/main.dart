@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       title: "Forms",
       home: Scaffold(
         appBar: AppBar(
@@ -26,6 +27,7 @@ class Forms extends StatefulWidget {
 
 class _FormsState extends State<Forms> {
   final keys = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(
