@@ -42,7 +42,7 @@ class TABBAR extends StatelessWidget {
           body: TabBarView(
             children: [
               HomePage(),
-              StorePage(),
+              Scaff(),
               SettingPage(),
             ],
           ),
