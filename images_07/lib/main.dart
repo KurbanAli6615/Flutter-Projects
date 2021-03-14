@@ -19,15 +19,21 @@ class MyApp extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-               Column(
+              Column(
                 children: [
-                  Image.asset("assets/a.jpg",width: 300,),
-                  Text("Wēãpøn X",style: TextStyle(
-                    fontSize: 30
+                  Image.asset(
+                    "assets/a.jpg",
+                    width: 300,
                   ),
+                  Text(
+                    "Wēãpøn X",
+                    style: TextStyle(fontSize: 30),
                   ),
                   Spacer(),
-                  Image.network("https://media.giphy.com/media/YWUpVw86AtIbe/giphy.gif",width: 200,)
+                  Image.network(
+                    "https://media.giphy.com/media/YWUpVw86AtIbe/giphy.gif",
+                    width: 300,
+                  )
                 ],
               )
             ],
