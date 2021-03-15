@@ -10,6 +10,52 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String output = "0";
+  String _output = "0";
+  double num1 = 0;
+  double num2 = 0;
+  String operand = "";
+
+  operation(String btnText) {
+    if (btnText == "C") {
+      _output = "0";
+      num1 = 0;
+      num2 = 0;
+      operand = "";
+    } else if (btnText == "+" ||
+        btnText == "-" ||
+        btnText == "*" ||
+        btnText == "/") {
+      num1 = double.parse(output);
+      operand = btnText;
+      _output = "0";
+    } else if (btnText == "=") {
+      num2 = double.parse(output);
+      if (operand == "+") {
+        _output = (num1 + num2).toString();
+      }
+      if (operand == "-") {
+        _output = (num1 - num2).toString();
+      }
+      if (operand == "*") {
+        _output = (num1 * num2).toString();
+      }
+      if (operand == "/") {
+        _output = (num1 / num2).toString();
+      }
+
+      num1 = 0;
+      num2 = 0;
+      operand = "";
+    } else {
+      _output = _output + btnText;
+    }
+
+    setState(() {
+      output = double.parse(_output).toStringAsFixed(2);
+    });
+  }
+
   Widget button(String btnText) {
     return Expanded(
       child: RawMaterialButton(
@@ -22,7 +68,9 @@ class _MyAppState extends State<MyApp> {
         fillColor: Colors.blueGrey,
         padding: EdgeInsets.all(20),
         shape: Border.all(color: Colors.black, width: 2),
-        onLongPress: () {},
+        onPressed: () {
+          operation(btnText);
+        },
       ),
     );
   }
@@ -44,7 +92,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                   child: Container(
                 child: Text(
-                  "Output",
+                  "$output",
                   style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500),
                 ),
                 alignment: Alignment.bottomRight,
@@ -53,13 +101,13 @@ class _MyAppState extends State<MyApp> {
                       color: Colors.black,
                       width: 2,
                     ),
-                    color: Colors.lightGreen),
+                    color: Colors.black12),
                 padding: EdgeInsets.all(20),
                 margin: EdgeInsets.only(bottom: 8),
               )),
               Row(
                 children: [
-                  button("c"),
+                  button("C"),
                   SizedBox(
                     width: 5,
                   ),
